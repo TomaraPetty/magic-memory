@@ -3,12 +3,12 @@ import './App.css';
 import SingleCard from './components/SingleCard';
 
 const cardImages = [
-  { src: '/img/helmet-1.png' },
-  { src: '/img/potion-1.png' },
-  { src: '/img/ring-1.png' },
-  { src: '/img/scroll-1.png' },
-  { src: '/img/shield-1.png' },
-  { src: '/img/sword-1.png' },
+  { src: '/img/helmet-1.png', matched: false },
+  { src: '/img/potion-1.png', matched: false },
+  { src: '/img/ring-1.png', matched: false },
+  { src: '/img/scroll-1.png', matched: false },
+  { src: '/img/shield-1.png', matched: false },
+  { src: '/img/sword-1.png', matched: false },
 ];
 
 function App() {
@@ -27,26 +27,35 @@ function App() {
   };
 
   const handleChoice = card => {
-    choiceOne ? setChoiceTwo(card) : setChoiceOne(card) 
+    choiceOne ? setChoiceTwo(card) : setChoiceOne(card);
   };
 
   useEffect(() => {
-    if(choiceOne && choiceTwo) {
-      if(choiceOne.src === choiceTwo.src) {
-        console.log('match')
-        resetTurn()
+    if (choiceOne && choiceTwo) {
+      if (choiceOne.src === choiceTwo.src) {
+        setCards(prevCards => {
+          return prevCards.map(card => {
+            if(card.src === choiceOne.src) {
+              return{ ...card, matched: true }
+            } else {
+              return card
+            }
+          })
+        })
+        resetTurn();
       } else {
-        console.log('do not match')
-        resetTurn()
+        resetTurn();
       }
     }
-  }, [choiceOne, choiceTwo])
+  }, [choiceOne, choiceTwo]);
+
+  console.log(cards)
 
   const resetTurn = () => {
-    setChoiceOne(null)
-    setChoiceTwo(null)
-    setTurns(prevTurns => prevTurns +1)
-  }
+    setChoiceOne(null);
+    setChoiceTwo(null);
+    setTurns(prevTurns => prevTurns + 1);
+  };
 
   return (
     <div className='App'>
@@ -55,10 +64,7 @@ function App() {
 
       <div className='card-grid'>
         {cards.map(card => (
-          <SingleCard 
-          key={card.id} 
-          card={card} 
-          handleChoice={handleChoice} />
+          <SingleCard key={card.id} card={card} handleChoice={handleChoice} />
         ))}
       </div>
     </div>
