@@ -13,7 +13,7 @@ button {
   font-size: 1em;
 }
 button:hover {
-  background: #c23866;
+  background: hotpink;
   color: #fff;
 }
 .card-grid {
@@ -21,4 +21,5 @@ button:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
+  padding: 20px;
 }

@@ -2,13 +2,22 @@ import { useEffect, useState } from 'react';
 import './App.css';
 import SingleCard from './components/SingleCard';
 
+const logos = {
+  react: "devicon-react-original-wordmark",
+  python: "devicon-python-plain-wordmark",
+  node: "devicon-nodejs-plain-wordmark",
+  typescript: "devicon-typescript-plain",
+  aws: "devicon-amazonwebservices-plain-wordmark",
+  github: "devicon-github-original-wordmark"
+}
+
 const cardImages = [
-  { src: '/img/helmet-1.png', matched: false },
-  { src: '/img/potion-1.png', matched: false },
-  { src: '/img/ring-1.png', matched: false },
-  { src: '/img/scroll-1.png', matched: false },
-  { src: '/img/shield-1.png', matched: false },
-  { src: '/img/sword-1.png', matched: false },
+  { src: logos.python, matched: false },
+  { src: logos.react, matched: false },
+  { src: logos.node, matched: false },
+  { src: logos.typescript, matched: false },
+  { src: logos.aws, matched: false },
+  { src: logos.github, matched: false },
 ];
 
 function App() {
@@ -59,7 +68,7 @@ function App() {
 
   return (
     <div className='App'>
-      <h1>Magic Match</h1>
+      <h1>Technical Skills</h1>
       <button onClick={shuffleCards}>New Game</button>
 
       <div className='card-grid'>
