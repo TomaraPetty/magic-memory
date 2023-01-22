@@ -14,7 +14,6 @@ export default function SingleCard({ card, handleChoice, flipped, disabled }) {
       <div className='text-wrapper'>
         <i
           className={`front ${card.src}`}
-          // src={card.src}
           alt='card front'
         ></i>
         <img
