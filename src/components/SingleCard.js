@@ -1,5 +1,6 @@
 import React from 'react';
 import './SingleCard.css';
+import Computer from '../../public/img/computer.png'
 
 export default function SingleCard({ card, handleChoice, flipped, disabled }) {
   const handleClick = () => {
@@ -18,7 +19,7 @@ export default function SingleCard({ card, handleChoice, flipped, disabled }) {
         ></i>
         <img
           className='back'
-          src='/img/computer.png'
+          src={Computer}
           onClick={handleClick}
           alt='card back'
         />
