@@ -21,5 +21,6 @@ button:hover {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-gap: 20px;
-  padding: 20px 100px;
+  padding-left: 100px;
+  padding-right: 100px;
 }
